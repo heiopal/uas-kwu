@@ -45,7 +45,10 @@ st.title("Dashboard Keuangan")
 
 @st.cache_data
 def load_sample_data():
-    df = pd.read_csv("data/sample_transactions.csv", parse_dates=["tanggal"])
+    import os
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    csv_path = os.path.join(base_dir, "data", "sample_transactions.csv")
+    df = pd.read_csv(csv_path, parse_dates=["tanggal"])
     return df
 
 df = load_sample_data()
