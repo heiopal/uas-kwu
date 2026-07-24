@@ -27,7 +27,6 @@ st.set_page_config(page_title="CUKUPIN - Prototipe MVP", page_icon="💸", layou
 st.sidebar.title("💸 CUKUPIN")
 st.sidebar.caption("Prototipe MVP — Design Sprint")
 
-profil = st.sidebar.selectbox("Pilih profil kamu:", ["Mahasiswa", "Pekerja"])
 saldo_awal = st.sidebar.number_input("Saldo awal periode ini (Rp)", min_value=0, value=3000000, step=50000)
 target_tabungan = st.sidebar.number_input("Target tabungan bulan ini (Rp)", min_value=0, value=300000, step=50000)
 hari_tersisa = st.sidebar.number_input("Sisa hari hingga periode berikutnya (gajian/kiriman)", min_value=1, value=15)
@@ -143,7 +142,6 @@ with st.expander("💬 Minta rekomendasi personal dari AI (opsional — butuh AP
                 client = anthropic.Anthropic(api_key=api_key)
                 prompt = f"""
                 Kamu adalah asisten keuangan personal bernama CUKUPIN.
-                Profil pengguna: {profil}
                 Saldo saat ini: Rp{saldo_sekarang:,.0f}
                 Target tabungan: Rp{target_tabungan:,.0f} dalam {hari_tersisa} hari
                 Kategori pengeluaran tertinggi: {anomali['kategori'].tolist() if not anomali.empty else 'tidak ada anomali'}
